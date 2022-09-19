@@ -14,7 +14,7 @@ export default function useCountries() {
   }, []); //fetch to supabase is not affected here for continent. This is for changes to query to database.
 
   const filterCountries = () => {
-    if (continent === 'all') return countries;
+    if (continent === 'All') return countries;
     return countries.filter((country) => country.continent === continent);
   };
 
