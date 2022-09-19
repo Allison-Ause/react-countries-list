@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 export default function useCountries() {
   const [countries, setCountries] = useState([]);
+  const [continent, setContinent] = useState('all');
 
   useEffect(() => {
     async function fetchData() {
@@ -11,5 +12,10 @@ export default function useCountries() {
     }
     fetchData();
   }, []);
-  return countries;
+
+  const filterCountries = () => {
+    if (continent === 'all') return countries;
+    return countries.filter((country) => country.continent === continent);
+  };
+  return { filterCountries, continent, setContinent };
 }
