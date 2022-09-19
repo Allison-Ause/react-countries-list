@@ -5,16 +5,17 @@ export default function Filter({ continent, setContinent }) {
       value={continent}
       onChange={(e) => {
         setContinent(e.target.value);
+        console.log('setContinent Value', e.target.value);
       }}
     >
-      <option value="all">All</option>
-      <option value="oceania">Oceania</option>
-      <option value="europe">Europe</option>
-      <option value="africa">Africa</option>
-      <option value="northAmerica">North America</option>
-      <option value="antarctica">Antarctica</option>
-      <option value="southAmerica">South America</option>
-      <option value="asia">Asia</option>
+      <option value="All">All</option>
+      <option value="Oceania">Oceania</option>
+      <option value="Europe">Europe</option>
+      <option value="Africa">Africa</option>
+      <option value="North America">North America</option>
+      <option value="Antarctica">Antarctica</option>
+      <option value="South America">South America</option>
+      <option value="Asia">Asia</option>
     </select>
   );
 }
