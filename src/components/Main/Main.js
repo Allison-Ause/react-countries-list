@@ -3,13 +3,13 @@ import CountryCard from '../CountryCard/CountryCard';
 import Filter from '../Filter/Filter';
 
 export default function Main() {
-  const countries = useCountries();
+  const { filterCountries, continent, setContinent } = useCountries();
   return (
     <main>
       <h2>Behold: The Flags of the World!</h2>
-      <Filter />
+      <Filter continent={continent} setContinent={setContinent} />
       <div>
-        {countries.map((country) => (
+        {filterCountries().map((country) => (
           <CountryCard key={country.id} {...country} />
         ))}
       </div>

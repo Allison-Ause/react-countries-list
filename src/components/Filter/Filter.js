@@ -1,6 +1,12 @@
-export default function Filter() {
+export default function Filter({ continent, setContinent }) {
   return (
-    <select className="filter">
+    <select
+      className="filter"
+      value={continent}
+      onChange={(e) => {
+        setContinent(e.target.value);
+      }}
+    >
       <option value="all">All</option>
       <option value="oceania">Oceania</option>
       <option value="europe">Europe</option>
