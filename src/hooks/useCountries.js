@@ -6,6 +6,7 @@ export default function useCountries() {
   const [continent, setContinent] = useState('All');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -23,9 +24,15 @@ export default function useCountries() {
   }, []); //fetch to supabase is not affected here for continent. This is for changes to query to database.
 
   const filterCountries = () => {
-    if (continent === 'All') return countries;
-    return countries.filter((country) => country.continent === continent);
+    const continentArray = countries.filter((country) => {
+      if (continent === 'All') return true;
+      return country.continent === continent;
+    });
+
+    return continentArray.filter((country) =>
+      country.name.toLowerCase().includes(search.toLowerCase())
+    );
   };
 
-  return { loading, filterCountries, continent, setContinent, error };
+  return { loading, filterCountries, continent, setContinent, error, search, setSearch };
 }

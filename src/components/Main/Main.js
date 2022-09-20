@@ -1,11 +1,20 @@
 import useCountries from '../../hooks/useCountries';
 import CountryCard from '../CountryCard/CountryCard';
 import Filter from '../Filter/Filter';
+import Search from '../Search/Search';
 
 import { Spinner } from '@chakra-ui/react';
 
 export default function Main() {
-  const { loading, filterCountries, continent, setContinent, error } = useCountries();
+  const {
+    loading,
+    filterCountries,
+    continent,
+    setContinent,
+    error,
+    search,
+    setSearch,
+  } = useCountries();
 
   if (loading) return <Spinner margin="auto" emptyColor="gray.200" color="blue.500" size="xl" />;
 
@@ -13,6 +22,7 @@ export default function Main() {
     <main>
       <p className="error">{error}</p>
       <h2>Behold: The Flags of the World!</h2>
+      <Search search={search} setSearch={setSearch} />
       <Filter continent={continent} setContinent={setContinent} />
       <div>
         {filterCountries().map((country) => (
