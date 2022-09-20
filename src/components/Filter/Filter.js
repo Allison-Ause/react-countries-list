@@ -5,7 +5,6 @@ export default function Filter({ continent, setContinent }) {
       value={continent}
       onChange={(e) => {
         setContinent(e.target.value);
-        console.log('setContinent Value', e.target.value);
       }}
     >
       <option value="All">All</option>
