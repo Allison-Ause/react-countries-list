@@ -14,6 +14,8 @@ export default function Main() {
     error,
     search,
     setSearch,
+    sort,
+    setSort,
   } = useCountries();
 
   if (loading) return <Spinner margin="auto" emptyColor="gray.200" color="blue.500" size="xl" />;
@@ -23,7 +25,7 @@ export default function Main() {
       <p className="error">{error}</p>
       <h2>Behold: The Flags of the World!</h2>
       <Search search={search} setSearch={setSearch} />
-      <Filter continent={continent} setContinent={setContinent} />
+      <Filter continent={continent} setContinent={setContinent} sort={sort} setSort={setSort} />
       <div>
         {filterCountries().map((country) => (
           <CountryCard key={country.id} {...country} />
