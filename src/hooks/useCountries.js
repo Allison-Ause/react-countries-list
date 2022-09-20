@@ -33,28 +33,16 @@ export default function useCountries() {
     const filteredArray = continentArray.filter((country) =>
       country.name.toLowerCase().includes(search.toLowerCase())
     );
+
     if (sort === 'Alphabetical') {
-      filteredArray.sort((a, b) => {
-        if (a.name < b.name) {
-          return -1;
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
-        return 0;
-      });
+      filteredArray.sort((a, b) => a.name.localeCompare(b.name, 'en', { ignorePunctuation: true }));
     }
     if (sort === 'Reverse Alphabetical') {
-      filteredArray.sort((a, b) => {
-        if (b.name < a.name) {
-          return -1;
-        }
-        if (b.name > a.name) {
-          return 1;
-        }
-        return 0;
-      });
+      filteredArray.sort(
+        (a, b) => -1 * a.name.localeCompare(b.name, 'en', { ignorePunctuation: true })
+      );
     }
+
     return filteredArray;
   };
 
@@ -71,4 +59,28 @@ export default function useCountries() {
   };
 }
 
+// code to play with later in lieu of filtered array
 // items.sort((a, b) => a.localeCompare(b, 'fr', { ignorePunctuation: true }));
+
+// if (sort === 'Alphabetical') {
+//   filteredArray.sort((a, b) => {
+//     if (a.name < b.name) {
+//       return -1;
+//     }
+//     if (a.name > b.name) {
+//       return 1;
+//     }
+//     return 0;
+//   });
+// }
+// if (sort === 'Reverse Alphabetical') {
+//   filteredArray.sort((a, b) => {
+//     if (b.name < a.name) {
+//       return -1;
+//     }
+//     if (b.name > a.name) {
+//       return 1;
+//     }
+//     return 0;
+//   });
+// }
