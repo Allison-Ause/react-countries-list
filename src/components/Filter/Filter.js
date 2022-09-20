@@ -1,12 +1,15 @@
+import '../Filter/Filter.css';
+
 export default function Filter({ continent, setContinent, sort, setSort }) {
   return (
     <div>
+      <label className="title">Sort Countries:</label>
       <select className="sort" value={sort} onChange={(e) => setSort(e.target.value)}>
-        Sort:
         <option value="None">All</option>
         <option value="Alphabetical">Alphabetical</option>
         <option value="Reverse Alphabetical">Reserve Alphabetical</option>
       </select>
+      <label className="title">Filter By Continent:</label>
       <select
         className="filter"
         value={continent}

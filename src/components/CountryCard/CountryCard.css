@@ -1,0 +1,16 @@
+.country-name {
+  text-decoration: bold;
+  font-size: 25px;
+  color: rgb(5, 5, 136);
+  margin: 17px;
+}
+
+.country-card {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.image {
+  margin-bottom: 30px;
+}

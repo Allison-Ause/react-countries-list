@@ -71,26 +71,4 @@ export default function useCountries() {
   };
 }
 
-// let countries = [...countries];
-
-// console.log('LOWERCASEDARRAY', lowerCasedArray);
-// const search = { search };
-// console.log('SEARCH', search);
-// const lowerSearch = search.toLowerCase;
-// console.log('lowerSearch', lowerSearch);
-// return lowerCasedArray.filter((country) => country.name.includes(lowerSearch));
-
-// original filterCountries:
-// const filterCountries = () => {
-//     const continentArray = countries.filter((country) => {
-//       if (continent === 'All') return true;
-//       return country.continent === continent;
-//     });
-
-//     return continentArray.filter((country) =>
-//       country.name.toLowerCase().includes(search.toLowerCase())
-//     );
-//   };
-
-//   return { loading, filterCountries, continent, setContinent, error, search, setSearch, sort, setSort };
-// }
+// items.sort((a, b) => a.localeCompare(b, 'fr', { ignorePunctuation: true }));
