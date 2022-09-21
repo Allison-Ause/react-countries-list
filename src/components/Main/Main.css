@@ -1,0 +1,14 @@
+main h2 {
+  font-size: 45px;
+  text-decoration: bold;
+}
+
+.error {
+  color: red;
+  text-decoration: bold;
+  font-size: 42px;
+}
+
+.country-container {
+  margin-top: 30px;
+}
